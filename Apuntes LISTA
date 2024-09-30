@@ -84,9 +84,7 @@ begin
 if(l=nil)then
   l:=nue;
 else begin 
-  act:=1
-  while (act^.sig<>nil)do
-    act:=act^.sig
+  act:=l
   act^.sig:=nue;
 end;
 end
@@ -105,3 +103,28 @@ else
 ult:=nue;
 end;
 end
+
+INSERTAR 
+Por cada elemento que se quiere agregar a la lista se debe generar un nuevo nodo y cargar el elemnto y luego:
+Si la lista esta vacia el nuevo nodo sera el puntero inicial de la lista
+Si la lista no esta vacia, se debe encontrar el lugar donde insertar el nuevo dato respetando el orden.Puede ser al principio,entre dos nodos ya existentes o al final
+
+procedure INSERTAR(var l:lista; e :elemento);
+var
+nue,act,ANT:lista;
+begin
+  new(nue);
+  nue^.dato:=e;
+  nue^.sig:=NIL;
+  act:=l;
+WHILE(act<>nil)and(act^.dato.campo_orden < e^.campo_orden)do begin
+  ant:=act;
+  act:=act^.sig
+end
+if(act=l)then
+ l:=nue;
+else 
+  ant^.sig:=nue
+nue^.sig:=act;
+end;
+
