@@ -1,0 +1,56 @@
+Program 5;
+type
+autos = record
+marca:string;
+modelo::string;
+precio:integer;
+end;
+
+function prom (total:integer; autos:integer):integer;
+var 
+aux:real;
+begin 
+aux:=total/autos;
+prom:=aux;
+end;
+
+procedure leerauto (var a:autos)
+begin
+read(a.marca);
+read(a.modelo);
+read(a.precio);
+end;
+
+procedure maximo (p:real;m:string; model:string; var pmax:real; 
+var marmax:string; var modmax:string);
+begin
+if(p>pmax)then
+ pmax:=p;
+ marmax:=m;
+ modmax:=model;
+end;
+end;
+
+procedure procesar (auto:autos);
+var
+marcamax,modelomax:string;
+totalprecios,pmax,totalautos:integer;
+begin
+ while (auto.marca<>'zzz');
+  leerauto (auto);
+  marcactual:=auto.marca;
+  if(marcactual=auto.marca)then
+    totalautos:=totalautos+1;
+    totalprecios:=totalprecios+auto.precio;
+  end
+  writeln(prom)
+  maximo(auto.precio,auto.marca,auto.modelo,pmax,marcamax,modelomax)
+ end
+writeln(marcamax,modelomax)
+end;
+
+var
+au:autos;
+begin
+procesar(au)
+end;
