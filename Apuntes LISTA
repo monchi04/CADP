@@ -1,0 +1,107 @@
+LISTA
+Program uno;
+type
+lista=^nodo;
+elem=....;
+nodo=record
+  dato:elemento;
+  sig:lista;
+end;
+
+var
+  l:lista
+
+
+CREAR LISTA
+Consiste en marcar que la lista no tiene una direccion inicial de comienzo
+l:=nil
+
+RECORRER LISTA
+Consiste en posicionarse al comienzo de la lista y a partir de alli ir avanzando por cada elemento de la misma hasta llegar al final o al nodo deseado
+
+procedure recorrer (l:lista);
+begin 
+  while (l<>nil)do
+  begin
+  ...(codigo)
+  l:=l^.sig;
+  end;
+end;
+
+procedure aumentarEDAD (l:lista);
+begin 
+  while (l<>nil)do
+  begin
+  l^.dAto.edad:=l^.dAto.edad+1;
+  l:=l^.sig;
+  end;
+end;
+
+Function promedio (l:lista):integer;
+var
+suma,cant:integer;
+begin 
+suma:=0;cant:=0
+ while (l<>nil)do
+  begin
+   suma:=suma+l^.dAto.edad;
+   cant:=cant+1
+   l:=l^.sig;
+  end;
+if (cant<>0)then
+Promedio:=Suma DIV cant
+else
+  promedio:=o;
+end
+end;
+
+
+AGREGAR ADELANTE
+Por cada elemento que se quiere agregar a la lista se debe generar un nuevo nodomy cargarnel elemnto. Siempre se modifica el inicial de la lista
+
+procedure AgregarAdelante(var l:lista; e :elemento);
+var
+nue:lista;
+begin
+  new(nue);
+  nue^.dato:=e;
+  nue^.sig:=l;
+  l:=nue;
+end
+
+AGREGAR AL FINAL
+Por cada elemento que se quiere agregar a la lista se debe generar un nuevo nodo y cargar el elemento. Luego:
+ Si la lista esta vacia el nuevo nodo sera el puntero inicial de la lista
+ Si la lista no esta vacia, al ultimo nodo de la lista hay que asignarle como siguiente el nuevo nodo creado.(existen dos formas, recorriendo, o llevando un puntero al ultimo nodo)
+
+procedure AgregarATRAS(var l:lista; e :elemento);
+var
+nue,act:lista;
+begin
+  new(nue);
+  nue^.dato:=e;
+  nue^.sig:=NIL;
+if(l=nil)then
+  l:=nue;
+else begin 
+  act:=1
+  while (act^.sig<>nil)do
+    act:=act^.sig
+  act^.sig:=nue;
+end;
+end
+
+procedure AgregarATRAS2(var l,ult:lista; e :elemento);
+var
+nue:lista;
+begin
+  new(nue);
+  nue^.dato:=e;
+  nue^.sig:=NIL;
+if(l=nil)then
+  l:=nue;
+else
+  ult^.sig:=nue;
+ult:=nue;
+end;
+end
