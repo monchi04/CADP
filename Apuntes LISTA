@@ -128,3 +128,49 @@ else
 nue^.sig:=act;
 end;
 
+ELIMINAR
+Por cada elemento que se quiere eliminar de una lista, primero se debera buscar (tener en cuenta si la lista esta ordenada o no).
+Si se encuentra, habra que hacer dispose, pero antes hay que considerar:
+ Si el elemento a eliminar es el primero, el puntero inicial se modificara.
+ Si el elemento a eliminar no es el primero, se debera actualizar el enlace del nodo anterior
+
+procedure ELIMINAR_SIN_ORDEN (var L:lista ; valor:...; var exito: boolean);
+var
+act,ant:lista;
+begin
+exito:=false;
+act:=L;
+While(act<>NIL) and (not exito) do
+    if(act^.dato.campo_orden=valor)then
+       exito:=true;
+    else begin
+       ant:=act;
+       act:=act^.sig;
+   end;
+if (exito) then begin
+   if (L=act) then
+     L:=L^.sig;
+   else
+     ant^.sig:=act^.sig;
+   dispose (act);
+ end;
+end
+
+procedure ELIMINAR_CON_ORDEN (var L:Lista; valor:...; var exito:boolean)
+var
+act,ant:lista;
+begin
+exito:=false;
+act:=L;
+while(act NIL)and(act^.dato.campo_orden valor)do begin
+ ant:= act;
+ act:=act^.sig;
+end
+if(act NIL)and(act^.dato.campo_orden=valor) then begin
+ exito:=true;
+if(L=act)then
+ L:=L^.SIG;
+Else
+ ant^.sig:=act^.sig;
+dispose(act)
+end
