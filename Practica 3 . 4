@@ -2,8 +2,8 @@ program 4;
 type
  linea=record
  num:integer;
- minutos:integer;
- mb:integer;
+ minutos:real;
+ mb:real;
  end;
  cliente=record
  cod:integer;
@@ -11,28 +11,28 @@ type
  lineas:linea;
  end;
  
- procedure leerlinea(var l:linea; cantidad:integer);
+ procedure leerlinea(var l:linea; cantidad:integer var contmb,contmin:real);
  var
- i:integer;
+ i,:integer;
  begin
  for i:=1 to cantidad do
    read(l.num);
    read(l.minutos);
+   contmin:=contmin+l.minutos*1.35;
    read(l.mb);
+   contmb:=contmb+L.mb*3.40;
  end;
    
  procedure leer (var c:cliente);
  var
  i:integer;
- min,mbs:real;
+ conmb,conmin:real;
  begin
  for i:=1 to 9300 do
    read(c.cod);
    read(c.cant);
-   leerlinea(c.lineas,c.cant);
-   min:=c.lineas.minutos*1.35;
-   mbs:=c.lineas.mb*3.40;
-   writeln(min,mbs);
+   leerlinea(c.lineas,c.cant,connmb,conmin);
+   writeln('Total a facturar del cliente='conmb,conmin);
    end;
  
  var
