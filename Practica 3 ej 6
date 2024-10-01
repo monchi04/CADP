@@ -19,7 +19,18 @@ readln(m.nanometros);
 readln(m.transitores);
 end;
 
-procedure maximos
+procedure maximos(marca:string;cant:integer;var maxmarca1,maxmarca2:string; var maxtransi1,maxtransi2:integer);
+Begin
+ if (cant>maxtransi1)then 
+    maxmarca2:=maxmarca1;
+    maxtransi2:=maxtransi1;
+    maxmarca1:=marca;
+    maxtransi1:=cant
+ else if (cant>maxtransi2)then
+    maxmarca2:=marca;
+    maxtransi2:=cant;
+ end;
+end
 
 procedure procesar (m:microprocesadores)
 var
@@ -28,23 +39,22 @@ cant,canttransitores,maxtransi1,maxtransi2:integer;
 begin
 maxtransi1:=-1;maxtransi2:=-1;cant:=0;canttransitores:=0;
 leer(m);
-marcaactual:=m.marca;
+c
 while(m.core<>0)then begin
- if(m.core<>0)and(m.marca=marcaactual)
- else
-   marcaactual:=m.marca;
-  end;
-if(m.transitores=14)
+ marcaactual:=m.marca
+ while(m.marca=marcaactual)
+   if(m.transitores=14)
      canttransitores:=canttransitores+1;
-  if(m.core>2)and(m.transitores<=22)then
+ maximos(m.marca,canttransitores,maxmarca1,maxmarca2,maxtransi1,maxtransi2);
+ if(m.core>2)and(m.transitores<=22)then
      writeln(m.marca);
      writeln(m.linea);
   end;
   if((m.core>1)and((m.marca='INTEL')or(m.marca='AMD'))and(m.reloj>=2))
     cant:=cant+1;
   end;
-  maximos(m.marca,canttransitores,maxmarca1,maxmarca2,maxtransi1,maxtransi2);
   leer(m);
 end;
 writeln(cant);
-writeln();
+writeln(maxmarca1,maxmarca2)
+end;
