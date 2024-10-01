@@ -1,0 +1,67 @@
+type
+centro=record
+ nombre:string;
+ universidad:string;
+ investigadores:integer;
+ becarios:integer;
+end
+
+procedure leer (var c:centro);
+begin
+readln(c.nombre);
+readln(c.universidad);
+readln(investigadores);
+readln(becarios);
+end
+
+procedure maximo(u:string; c:integer; var unimax:string; var cantmax:integer);
+begin
+if(c > cantmmax)then
+  unimax:=u;
+  cantmax:=c;
+end;
+end;
+
+
+procedure minimos(n:string ; b:integer ; var nomin1,nomin2:string ; var min1,min2:integer);
+var
+begin
+if(b<min1)then begin
+ nomin2:=nomin1;
+ min2:=min1;
+ nomin1:=n;
+ min1:=b;
+else if(b<min2)then begin
+ nomin2:=n;
+ min2:=b;
+end
+
+procedure procesar (ce:centro);
+var
+uniactual,unimax,nomin1,nomin2:string;
+cantinvestigadores,cantcentros,min1,min2,cantmax:integer;
+begin
+cantinvestigadores:=0;cantcentros:=0;cantmax:=-1;min1:=999;min2:=999;
+leer(ce);
+while(ce.investigadores<>0)do begin
+  uniactual:=ce.universidad;
+  while(ce.universidad:=uniactual)
+     cantcentros:=cantcentros+1;
+     cantinvestigadores:=cantinvestigadores+ce.investigadores;
+  end
+  writeln('para la uni'uniactual,cantcentros);
+  maximo(uniactual,cantinvestigadores,unimax,cantmax);
+  minimos(ce.nombre,ce.becarios,nomin1,nomin2,min1,min2);
+  leer(ce);
+ end;
+writeln(unimax,cantmax);
+writeln(nomin1,min1,nomin2,min2);
+end
+
+var
+c:centro
+begin
+procesar(c)
+end
+  
+ 
