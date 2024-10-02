@@ -21,7 +21,7 @@ type
       readln(d.nombre);
       readln(d.apellido);
       readln(d.email);
-    end
+    end;
  
    procedure leer (var p:proyecto);
     begin
@@ -31,6 +31,7 @@ type
       readln(p.alumnos);
       readln(p.nombre);
       readln(p.localidad);
+     end;
   
   procedure maximos(n:integer; p:integer; var nomax1,nomax2:string; var max1,max2:integer);
    begin
@@ -43,7 +44,7 @@ type
         nomax2:=n;
         max2:=p;
      end;
-    end
+    end;
 
    function cumple (p:proyecto):boolean
    var
@@ -62,9 +63,9 @@ type
         ok:=true;
     else
        ok:=false;
-    end
+    end;
     cumple:=ok;
-  end
+  end;
   
  procedure procesar (p:proyecto);
  var
@@ -89,7 +90,7 @@ type
       end;
       leer(p)
     end;
-end
+end;
   
   var
  Proy:proyecto
