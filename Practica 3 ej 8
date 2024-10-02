@@ -1,0 +1,102 @@
+type 
+   datosdocente=record
+     DNI:integer;     
+     nombre:string;
+     apellido:string;
+     email:string;
+   end;
+ 
+   proyecto=record
+      cod:integer;
+      titulo:string;
+      docente:datosdocente;
+      alumnos:integer;
+      nombre:string;
+      localidad:string;
+    end;
+ 
+   procedure leerdocente (var d:datosdocente);
+    begin
+      readln(d.DNI);
+      readln(d.nombre);
+      readln(d.apellido);
+      readln(d.email);
+    end
+ 
+   procedure leer (var p:proyecto);
+    begin
+      readln(p.cod);
+      readln(p.titulo);
+      leerdocente(p.docente);
+      readln(p.alumnos);
+      readln(p.nombre);
+      readln(p.localidad);
+  
+  procedure maximos(n:integer; p:integer; var nomax1,nomax2:string; var max1,max2:integer);
+   begin
+     if(p>max1)then begin
+        nomax2:=nomax1;
+        max2:=max1;
+        nomax1:=n;
+        max1:=p;
+     else if (p>max2)then
+        nomax2:=n;
+        max2:=p;
+     end;
+    end
+
+   function cumple (p:proyecto):boolean
+   var
+    ok:boolean;
+    pares,impares,resto,cant:integer;
+   begin
+     pares:=0;impares:=0;resto:=0;cant:=0;
+     while(p.cod<>0)do begin
+        resto:=p.cod mod 10;
+        if(resto mod 2=0)then  
+             par:=par+1;
+        resto:=resto div 10;
+        impar:=impar+1;
+      end;
+    if(par=impar)
+        ok:=true;
+    else
+       ok:=false;
+    end
+    cumple:=ok;
+  end
+  
+ procedure procesar (p:proyecto);
+ var
+   cant2018,cantxloc,max1,max2:integer;
+    nomax1,nomax2,escactual,locactual:string;
+ begin
+    cant2018:=0;cantxloc:=0;max1:=-1;max2:=-1;
+    leer(p);
+    while(p.cod<>-1)
+       escactual:=p.nombre;
+       while(p.nombre=escactual)do begin
+           locactual:=p.local;
+           while(p.localidad=locactual)do begin
+               cantxloc:=cantxloc+1;
+           end;
+      if()
+       cant2018:=cant2018+1;
+      end;
+      maximos(p.nombre,n.alumnos,nomax1,nomax2,max1,max2)
+      if(cumple)and(p.localidad='daireaux')then begin
+        writeln(p.titulo);
+      end;
+      leer(p)
+    end;
+end
+  
+  var
+ Proy:proyecto
+
+ begin
+ procesar(proy)
+ end.
+  
+  
+ 
