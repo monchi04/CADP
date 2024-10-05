@@ -23,8 +23,15 @@ d. Qué valores están contenidos en la variable numeros si la líneas 11 y 12 s
 for i:=1 to 9 do
 numeros[i+1] := numeros[i];
 
-a-10
-b-9
+
+
+a- pos 1= 1      pos 3= 3      pos 5= 5      pos 7= 7      pos 9= 9
+   pos 2= 2      pos 4= 4      pos 6= 6      pos 8= 8      pos 10= 10
+
+b-pos 1= 1      pos 3= 4      pos 5= 6      pos 7= 8      pos 9= 10
+  pos 2= 3      pos 4= 5      pos 6= 7      pos 8= 9      pos 10= 11
 c-for i:=1 to 9 do
     numeros[i] := i;
-d-10
+d- pos 1= 1      pos 3= 2      pos 5= 4      pos 7= 6      pos 9= 8
+   pos 2= 1      pos 4= 3      pos 6= 5      pos 8= 7      pos 10= 9
+
