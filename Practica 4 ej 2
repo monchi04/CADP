@@ -15,17 +15,24 @@ var dimL : integer);
 var
 n:real;
 begin
-while(n <> 0)do begin
- for i:=1 to dimL do begin
-      readln(n);
-      v[i] := n;
+dimL:=0;
+readln(n);
+while ((dimL < cant_datos) and (n <> 0))do begin
+       dimL:= dimL + 1
+       v[dimL]:= n;
+       readln(n);
+    end;
 end;
+    
 procedure modificarVectorySumar(var v:vdatos;
 dimL : integer; n: real; var suma: real);
 var
-. . . { completar }
+i:integer;
 begin
-
+for i:= 1 to dimL do begin
+    v[i]:=v[i]+n;
+    suma:=suma+v[i];
+   end;
 end;
 
 { programa principal }
