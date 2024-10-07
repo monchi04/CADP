@@ -1,0 +1,70 @@
+3. Se dispone de un vector con números enteros, de dimensión física dimF y dimensión lógica dimL.
+a. Realizar un módulo que imprima el vector desde la primera posición hasta la última.
+b. Realizar un módulo que imprima el vector desde la última posición hasta la primera.
+c. Realizar un módulo que imprima el vector desde la mitad (dimL DIV 2) hacia la primera posición, y
+desde la mitad más uno hacia la última posición.
+d. Realizar un módulo que reciba el vector, una posición X y otra posición Y, e imprima el vector desde
+la posición X hasta la Y. Asuma que tanto X como Y son menores o iguales a la dimensión lógica. Y
+considere que, dependiendo de los valores de X e Y, podría ser necesario recorrer hacia adelante o
+hacia atrás.
+e. Utilizando el módulo implementado en el inciso anterior, vuelva a realizar los incisos a, b y c.
+
+Const
+ dimF=...
+Type
+numeros= Array[1..dimF ] of integer;
+
+procedure moduloA (var n:numeros,dimL:integer);
+var
+   i,valor:integer;
+begin
+    for i:=1 to dimL do begin
+       valor:=n[i];        otra opcion  readln(n[i]);
+       readln(valor);
+    end;
+end;
+
+procedure moduloB (var n:numeros,dimL:integer);
+var
+   i,valor:integer;
+begin
+    for i:=dimL downto 1 do begin
+       valor:=n[i];        otra opcion  writeln(n[i]);
+       writeln(valor);
+    end;
+end;
+
+procedure moduloC (var n:numeros,dimL:integer);
+var
+   i,valor,mitad,mitadmasuno:integer;
+begin
+    mitad:= dimL DIV 2;
+    for i:=mitad downto 1 do begin
+       valor:=n[i];        otra opcion  writeln(n[i]);
+       writeln(valor);
+    end;
+    mitadmasuno:= mitad+1;
+    for i:=mitadmasuno to dimL do begin
+       valor:=n[i];        otra opcion  writeln(n[i]);
+       writeln(valor);
+    end;
+end;
+
+procedure moduloD ( n:numeros;X,Y:integer;)
+var
+i,valor:integer;
+begin 
+  if (x > y) then begin
+    for i:= y to x do begin
+       valor:=n[i];        otra opcion  writeln(n[i]);
+       writeln(valor);
+    end;
+    else
+     for i:= x to y do begin
+       valor:=n[i];        otra opcion  writeln(n[i]);
+       writeln(valor);
+    end;
+end;
+
+
+
