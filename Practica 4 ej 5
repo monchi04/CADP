@@ -9,38 +9,51 @@ dimF=100
 Type
 numeros= Array  [1..dimF]
 
-procedure minimo (elem:integer; var min:integer);
+procedure minimo (elem,pos:integer; var posmin,min:integer);
 var
 begin
 if(elem<min) then begin
    min:=elem;
+   posmin:=pos;
   end;
 end;
 
-procedure maximo (elem:integer; var max:integer);
+procedure maximo (elem,pos:integer; var posmax,max:integer);
 var
 begin
 if(elem>max) then begin
    max:=elem;
+   posmax:=pos;
   end;
 end;
 
-procedure cargarvector(var n:numeros)
+procedure cargarvector(var n:numeros,valor:integer);
 var
 begin
-   read(valor);
    n [i]:=valor;
 end;
 
-procedure procesar (n:numeros;pos:integer)
+procedure procesar (n:numeros)
 var
-max,min:integer
+pos,posmax,max,posmin,min:integer
 begin
-while(n [pos]<=dimF)and(num <> 0)do begin
-    cargarvector(n);
-    minimo(n [pos],min);
-    maximo(n [pos],max);
+posmax:=0;posmin:=0;min:=999;max:=-1;
+read(valor);
+pos:=1;
+while( n[pos]<=dimF ) and(valor <> 0)do begin
+    cargarvector(n,v);
+    minimo(n[pos],pos,posmin,min);
+    maximo(n[pos],pos,posmax,max);
     pos:=pos+1;
+    read(valor);
   end;
+writeln('El elemento máximo ',max,' que se encontraba en la
+posición ',posmax,' fue intercambiado con el elemento mínimo ',min,' que se encontraba en la posición ',posmin)
+
+var
+vecnum:numeros
+begin
+procesar(vecnum);
+end.
   
 
