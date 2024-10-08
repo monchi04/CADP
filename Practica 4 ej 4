@@ -26,4 +26,49 @@ while(pos<=dimL)and(esta=-1)do begin
 moduloA:= esta;
 end;
 
+procedure moduloB(; posx, posy :integer; var n:numeros); 
+var
+posaux :integer;
+begin 
+posaux:=posx;
+n[posaux]:=n[posx];
+posx:=posy;
+n[posaux]:=n[posy];
+posy:=posaux;
+n[posauy]:=n[posaux];
+end;
+
+procedure minimo (elem:integer; var min:integer);
+var
+begin
+if(elem<min) then begin
+   min:=elem;
+  end;
+end;
+
+procedure maximo (elem:integer; var max:integer);
+var
+begin
+if(elem>max) then begin
+   max:=elem;
+  end;
+end;
+
+procedure moduloCyDyEyF(var n: numeros; dimL:integer);
+var
+i,suma,prom,max,min:integer;
+begin
+max:=-1;
+min:=999;
+summa:=0;
+for i:= 1 to dimL do
+begin
+   maximo(n[i],max);
+   minimo(n[i],min);
+   suma:= suma+ n[i];
+end;
+prom:=suma/dimL;
+end;
+
+
 
