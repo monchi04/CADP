@@ -4,4 +4,43 @@ finalizar la carga, se debe intercambiar la posición del mayor elemento por la 
 informe la operación realizada de la siguiente manera: “El elemento máximo ... que se encontraba en la
 posición ... fue intercambiado con el elemento mínimo ... que se encontraba en la posición ...”
 
-Procedure cargarvec(varn 
+Const
+dimF=100
+Type
+numeros= Array  [1..dimF]
+
+procedure minimo (elem:integer; var min:integer);
+var
+begin
+if(elem<min) then begin
+   min:=elem;
+  end;
+end;
+
+procedure maximo (elem:integer; var max:integer);
+var
+begin
+if(elem>max) then begin
+   max:=elem;
+  end;
+end;
+
+procedure cargarvector(var n:numeros)
+var
+begin
+   read(valor);
+   n [i]:=valor;
+end;
+
+procedure procesar (n:numeros;pos:integer)
+var
+max,min:integer
+begin
+while(n [pos]<=dimF)and(num <> 0)do begin
+    cargarvector(n);
+    minimo(n [pos],min);
+    maximo(n [pos],max);
+    pos:=pos+1;
+  end;
+  
+
