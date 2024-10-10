@@ -1,0 +1,60 @@
+8. Realizar un programa que lea y almacene la información de 400 alumnos ingresantes a la Facultad de
+Informática de la UNLP en el año 2020. De cada alumno se lee: nro de inscripción, DNI, apellido,
+nombre y año de nacimiento. Una vez leída y almacenada toda la información, calcular e informar:
+a. El porcentaje de alumnos con DNI compuesto sólo por dígitos pares.
+b. Apellido y nombre de los dos alumnos de mayor edad.
+
+Type
+infoalu = record
+   inscripcion:integer;
+   dni:integer;
+   apellido:string;
+   nombre:string;
+   año_nacimiento:integer;
+   end:
+   
+alumnos = array [1..400] of infoalu;
+
+procedure leer (var a:infoalu)
+begin
+  read(a.inscripcion)
+  read(a.dni);
+  read(a.apellido);
+  read(a.nombre);
+  read(a.año_nacimiento);
+end
+
+procedure inicializar ();
+var
+begin
+end
+
+procedure cargar (var v:alumnos; a:infoalu);
+begin
+   leer(a);
+   v[i]:=a;
+  end;
+end;
+
+function porcentaje ( d:integer) : real;
+var
+begin
+end
+
+procedure maximos();}
+var
+begin
+end
+
+procedure procesar()
+var
+begin
+end
+
+
+var
+v:alumnos;
+a:infoalu;
+begin
+procesar(v,a);
+end.
