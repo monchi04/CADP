@@ -24,10 +24,14 @@ begin
   read(a.año_nacimiento);
 end
 
-procedure inicializar ();
+procedure inicializar (var ve:alumnos);
 var
+i:integer;
 begin
-end
+  for i:=1 to 400 do begin
+    ve[i]:=0;
+  end;
+end;
 
 procedure cargar (var v:alumnos; a:infoalu);
 begin
@@ -36,20 +40,60 @@ begin
   end;
 end;
 
-function porcentaje ( d:integer) : real;
+function pares (a:infoalu): boolean;
 var
+  dni,digito,cantpares:integer;
+  ok:boolean;
 begin
-end
+ dni:=a.dni;
+ok:false;
+while(dni<>0)do begin
+  while(digito MOD 2 = 0)do begin
+    digito:= dni MOD 10;
+    if(digito MOD 2 = 0) then
+     ok:=true
+     dni:= dni DIV 10;
+    else ok:=false 
+  end;
+pares:=ok;
+end;
 
-procedure maximos();}
-var
-begin
-end
 
-procedure procesar()
+
+procedure maximos(e:integer; ape:string; nom:string; var max1,max2:integer; var nomax1,nomax2; var apemax1;apemax2);
 var
 begin
-end
+if (e<max1)then begin
+   max2:=max1;
+   nomax2:=nomax1;
+   apemax2:=apemax1;
+   max1:=e;
+   nomax1:=nom;
+   apemax1:=ape;
+end;
+ else if (e<max2) then begin
+    max2:=e;
+    nomax2:=nom;
+    apemax2:=ape;
+ end;
+end;
+
+procedure procesar(v:alumnos; a: infoalu);
+var
+i,cantpares,max1,max2: integer;
+nomax1,nomax2,apemax1,apemax2:string;
+porcentaje:real;
+begin
+inicializar(v);
+max1:=2025; max2:=2025;cantpares:=0;porcentaje:=0;
+for i:=1 to 400 do begin
+   cargar(v,a);
+   maximos(v.año_nacimiento,v.apellido,v.nombre,max1,max2,nomax1,nomax2,apemax1,apemax2);
+   if(pares)then begin
+     cantpares:=cantpares+1
+   end;
+porcentaje:=400*cantpares/100;
+end;
 
 
 var
