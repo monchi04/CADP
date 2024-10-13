@@ -1,0 +1,71 @@
+4. Utilizando el programa del ejercicio 1, realizar los siguientes módulos:
+a. Máximo: recibe la lista como parámetro y retorna el elemento de valor máximo.
+b. Mínimo: recibe la lista como parámetro y retorna el elemento de valor mínimo.
+c. Múltiplos: recibe como parámetros la lista L y un valor entero A, y retorna la cantidad de
+elementos de la lista que son múltiplos de A.
+
+program JugamosConListas;
+
+type
+lista = ^nodo;
+nodo = record
+num : integer;
+sig : lista;
+end;
+
+procedure armarNodo(var L: lista; v: integer);
+var
+aux : lista;
+begin
+new(aux);
+aux^.num := v;
+aux^.sig := L;
+L := aux;
+end;
+
+procedure Máximo (l:lista; var max:integer);
+var
+begin
+  if(l^.num>max)then begin
+   max:=l^.num;
+  end;
+end;
+
+procedure Mínimo (l:lista; var min:integer);
+var
+begin
+   if(l^.num<min)then begin
+    min:=l^.num;
+   end;
+end;
+
+procedure Múltiplos (l:lista; a:integer; var cantmultiplosdeA:integer)
+var
+begin
+  if(l^.num mod a=0)then begin
+  cantmultiplosdeA:=cantmultiplosdeA+1;
+  end;
+end;
+
+var
+pri : lista;
+valor,max,min,a,cant : integer;
+
+begin
+max:=-1;min:=999;a:=10;cant:=0;
+pri := nil;
+writeln(‘Ingrese un numero’);
+read(valor);
+while (valor <> 0) then begin
+  armarNodo(pri, valor);
+  writeln(‘Ingrese un numero’);
+  read(valor);
+end;
+while (l <> nil) then begin
+  maximo(pri,max);
+  minimo(pri,min);
+  multiplo(pri,a,cant);
+  l:=l^.sig;
+end;
+. . . { imprimir lista }
+end.
