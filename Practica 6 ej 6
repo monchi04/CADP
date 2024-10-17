@@ -64,14 +64,56 @@ nue^.sig:=L;
 L:=nue;
 end;
 
+procedure maximo (L:lista; var max:integer; var nombremax;)
+var
+suma:integer;
+begin
+suma:=l^.dato.costo_construccion+l^.dato.costo_mantenimiento;
+if(suma>max)then begin
+   max:=suma;
+   nombremax:=l^.dato.nombre;
+  end;
+end;espectro
+
+procedure cargarvec(var v:estudios; L:lista);
+var
+i:integer;
+begin
+i:=1;
+while(l^.dato.rango_espectro<=7)do begin
+   if(l^.dato.rango_espectro=i)then
+        v[i]:=v[i]+1;
+   else i:= i + 1;
+ end;
+end;
+
+
 procedure procesar(l:lista);
 var
-vec:espectro;
+max,totalsondas,costotal,duracion,promcos,promdur:integer;
+nombremax:string;
+vec:estudios;
 begin
+max:=-1;
 inicializar(vec);
 while (L <> nil) do begin
-   maximo(l^,dato.costo_construccion,l^,dato.costo_mantenimiento,max,nombremax);
+   totalsondas:=totalsondas+1; 
+   costototal:=costototal+l^.dato.costo_construccion;
+   duracion:=duracion+l^.dato.duracion_estimada;
+   cargarvec(vec,L);
+   maximo(L,max,nombremax);
+   l:=l^.sig;
 end;
+promdur:=duracion/totalsondas;
+promcos:=costototal/totalsondas
+while (L <> nil) do begin
+  if(l^.dato.duracion_estimada>promdur)then
+     modulo_c:=modulo_c+1;
+   if(l^.dato.costo_construccion>promcos)then
+     modulo_d:=modulo_d+1;
+    l:=l^.sig;
+  end;
+
 end;
 
 var
