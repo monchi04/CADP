@@ -1,0 +1,60 @@
+11. La Facultad de Informática debe seleccionar los 10 egresados con mejor promedio a los que la UNLP les
+entregará el premio Joaquín V. González. De cada egresado se conoce su número de alumno, apellido y
+el promedio obtenido durante toda su carrera.
+Implementar un programa que:
+a. Lea la información de todos los egresados, hasta ingresar el código 0, el cual no debe procesarse.
+b. Una vez ingresada la información de los egresados, informe el apellido y número de alumno de los
+egresados que recibirán el premio. La información debe imprimirse ordenada según el promedio
+del egresado (de mayor a menor).
+
+program once;
+egresado=record
+  numalu:integer;
+  apellido:string;
+  promedio:real;
+  end
+
+lista=^nodo
+  nodo=record
+    dato:egresado;
+    sig:lista;
+    end
+    
+premios=array[1..10] of egresado;
+
+procedure leer(var e:egresado);
+begin
+read(e.numalu);
+if(e.numalu<>0)then begin
+  read(e.apellido);
+  read(e.promedio);
+  end;
+end;
+
+procedure armarlista(var l:lista);
+var
+begin 
+end;
+
+procedure inicializarvec();
+var
+begin
+end;
+
+procedure cargarvec();
+var 
+begin
+end;
+
+procedure procesar(l:lista);
+var
+begin
+end;
+
+var
+l:lista 
+e:egresado
+begin
+l:=nil;
+procesar(l);
+end
