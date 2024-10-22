@@ -34,14 +34,23 @@ var
 begin   // SE DISPONE
 end;
 
-function prom():real;
+function prom(pasajeros,viajes):real;
 var
+aux:real
 begin
+aux:=pasajeros/viajes;
+prom:=aux;
 end;
 
-procedure maximo();
+procedure maximo( v:vmeses;var mesmax:meses; var max:integer);
 var
+i:integer;
 begin
+for i:=1 to 12 do
+  if(v[i]>max)then begin
+    mesmas:=i;
+    max:=v[i];
+  end;
 end;
 
 procedure agregaralfinal(var l:lista, r:incisoa);
@@ -49,9 +58,13 @@ var
 begin
 end;
 
-procedure inicializarvec();
+procedure inicializarvec(var  v:vmeses);
 var
+i:integer;
 begin
+for i:=1 to 12 do begin
+  v[i]:=0;
+ end;
 end;
 
 procedure procesar (l:lista;var l2:lista);
@@ -65,7 +78,7 @@ cantviajes,max,totalpasajeros,precioactual:integer;
 begin
 cargarvector(vprecios);
 inicializarvec(vmeses);
-cantviajes:=0;totalpasajeros:=0:precioactual:=0;
+cantviajes:=0;totalpasajeros:=0:precioactual:=0; max:=-1;
 while(l<>nil)
   trenactual:=l^.dato.codtren
   while(l<>nil)and(l^.dato.codtren=trenactual)do begin
