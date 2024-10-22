@@ -55,7 +55,17 @@ end;
 
 procedure agregaralfinal(var l:lista, r:incisoa);
 var
+nue,act:lista;
 begin
+  new(nue);
+  nue^.dato:=r;
+  nue^.sig:=NIL;
+if(l=nil)then
+  l:=nue;
+else begin 
+  act:=l
+  act^.sig:=nue;
+end;
 end;
 
 procedure inicializarvec(var  v:vmeses);
