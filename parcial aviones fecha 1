@@ -1,0 +1,87 @@
+program aviones
+aviones=1000..2500;
+type
+viaje=record
+  codavion:aviones;
+  año:integer;
+  cantpasajeros:integer;
+  destino:string;
+  end
+
+lista=^nodo
+ nodo=record
+  dato:viaje;
+  sig:lista
+  end
+
+capacidad=array [aviones] of integer;
+
+procedure cargarlista(var l:lista;v:viaje);
+//se dispone
+
+procedure cargarvector(var c:capacidad);
+//se dispone
+
+function cumple(l:lista;c:capacidad):boolean;
+var
+aux:boolean
+begin
+aux:=false;
+if(l^.dato.año mod 10=0) and (l^.dato.destino='punta cana')and
+  (l^.dato.cantpasajeros < c[l^.dato.codavion]) and (not aux)then
+    aux:=true;
+end;
+
+function prom(total,cant:integer):integer;
+var
+begin
+end;
+
+procedure maximo(a:aviones;c:integer;var maxviajes:integer;var maxavion:aviones);
+var
+begin
+if(c>maxviajes)then begin
+   maxavion:=a;
+   maxviajes:=c;
+end;
+
+procedure agregaradelante(var l:lista,v:viaje);
+var
+nue:lista;
+begin
+new(nue);
+nue^.dato:=v;
+nue^.sig:=l;
+l:=nue;
+end;
+
+procedure procesar (l,l2:lista; c:capacidad;v:viaje);
+var
+maxavion,avionactual:aviones;
+totalpasajeros,totalviajes,maxviajes:integer;
+begin
+totalpasajeros:=0;totalviajes:=0;maxavion:=0;maxviajes:=-1;
+while (l<>nil)do begin
+   avionactual:=l^.dato.codavion;
+   while (l<>nil)and(l^.dato.codavion=avionactual)do begin
+     totalpasajeros:=totalpasajeros+l^.dato.cantpasajeros;
+     totalviajes:=totalviajes+1;
+     if(cumple(l,c))then
+       agregaradelante(l2,v);
+     l:=l^.sig;
+   end;
+   maximo(avionactual,cantviajes,maxviajes,maxavion)
+   writeln(prom(totalpasajeros,cantviajes));
+   
+end;
+
+var
+l,l2:lista
+v:viaje;
+c:capacidad;
+begin
+l:=nil; l2:=nil;
+cargarlista(l,v);
+cargarvector(c);
+procesar(l,l2,c,v);
+end.
