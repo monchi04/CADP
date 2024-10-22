@@ -1,0 +1,94 @@
+program parcialtrenes;
+ciudad:1..20;
+meses:1..12;
+type
+ viaje=record
+   codtren:integer;
+   mes:meses;
+   cantpasajeros:integer;
+   codciudad:ciudad;
+   end;
+   
+ lista=^nodo
+   nodo=record
+    dato:viaje;
+    sig:lista;
+  end;
+  
+  recaudacionesXmes=array[meses] of integer;
+  
+  ticketXciudad=array[ciudad] of integer;
+  
+  incisoa=record
+    codtren:integer;
+    viajes:integer;
+end;
+
+procedure cargarvector(var v:ticketXciudad);
+var
+begin    // SE DISPONE
+end;
+
+procedure cargarlista(var l:lista;v:viaje);
+var
+begin   // SE DISPONE
+end;
+
+function prom():real;
+var
+begin
+end;
+
+procedure maximo();
+var
+begin
+end;
+
+procedure agregaralfinal(var l:lista, r:incisoa);
+var
+begin
+end;
+
+procedure inicializarvec();
+var
+begin
+end;
+
+procedure procesar (l:lista;var l2:lista);
+var
+r:incisoa;
+mesmax:meses;
+vmeses:recaudacionesXmes;
+vprecios:ticketXciudad;
+trenactual:string;
+cantviajes,max,totalpasajeros,precioactual:integer;
+begin
+cargarvector(vprecios);
+inicializarvec(vmeses);
+cantviajes:=0;totalpasajeros:=0:precioactual:=0;
+while(l<>nil)
+  trenactual:=l^.dato.codtren
+  while(l<>nil)and(l^.dato.codtren=trenactual)do begin
+    cantviajes:=cantviajes+1;
+    totalpasajeros:=totalpasajeros+l^.dato.pasajeros;
+    precioactual:=vprecios[l^.dato.codciudad];
+    vmeses[l^.dato.mes]:=vmeses[l^.dato.mes]+precioactual*totalpasajeros;
+    l:=l^l.sig;
+    end;
+  r.codtren:=l^.dato.codtren;
+  r.viajes:=cantviajes;
+  agregaralfinal(l2,r)    
+  writeln(prom(totalpasajeros,cantviajes));
+ end;
+ maximo(vmeses,mesmax,max);
+end;
+
+var
+l,l2:lista;
+v:viaje;
+begin
+l:=nil;
+l2:=nil
+cargarlista(l.v);
+procesar(l,l2);
+end.
