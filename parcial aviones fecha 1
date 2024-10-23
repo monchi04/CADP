@@ -1,6 +1,6 @@
 program aviones
-aviones=1000..2500;
 type
+aviones=1000..2500;
 viaje=record
   codavion:aviones;
   año:integer;
