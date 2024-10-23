@@ -1,7 +1,7 @@
 program parcialtrenes;
+type
 ciudad:1..20;
 meses:1..12;
-type
  viaje=record
    codtren:integer;
    mes:meses;
