@@ -1,0 +1,42 @@
+program parcialcolectivos;
+type;
+coche=1000..2500
+meses=1..12;
+viaje=record
+  codviaje:integer;
+  numcoche:coche;
+  mes:meses;
+  pasajesvendidos:integer;
+  dnichofer:integer;
+  end;
+ lista=^nodo
+   nodo=record
+    dato:viaje;
+    sig:lista
+    end;
+capacidad=array[coche] of integer;
+viajes=Array[coche] of integer;
+pasajeros=Array[coche] of integer;
+
+procedure cargarvec(var c:capacidad);
+var
+begin//SE DISPONE
+end;
+
+procedure cargarlista(var l:lista;v:viaje);
+var()
+
+
+
+
+var
+l,l2:lista;
+c:capacidad;
+v:viaje;
+begin
+l:=nil;
+l2:=nil;
+cargarvec(c);
+cargarlista(l,v);
+procesar(l,l2,c);
+end.
